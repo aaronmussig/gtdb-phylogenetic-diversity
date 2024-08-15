@@ -1,0 +1,13 @@
+from snakemake.utils import min_version
+
+min_version("7.32.4")
+
+include: "rules/calculate_pd.smk"
+include: "rules/download_files.smk"
+include: "rules/scale_trees.smk"
+
+
+rule all:
+    input:
+        "output/phylogenetic_diversity_ar53.tsv",
+        "output/phylogenetic_diversity_bac120.tsv"
